@@ -8,49 +8,33 @@
             </div>
         </div>
         <div class="events-img-list">
-            <div class="slick-dots02 js-slick02 event-item02-list row"><!--js-init-slick-->
-                <div class="col-md-4">
-                    <div class="event-item02">
-                        <div class="event-item02__img lazyload" data-bg="images/events-offer-01.jpg"></div>
-                        <div class="event-item02__content">
-                            <div class="event-item02__border">
-                                <h4 class="tt-title">Corporate Events</h4>
-                                <p>
-                                    A friendly happy hour, a company holiday party, or an evening of entertainment for VIP.
-                                </p>
-                                <a href="events-parties.html" class="tt-btn"><span>know more</span></a>
+            <div class="slick-dots02 js-slick02 event-item02-list row">
+                    <!--js-init-slick-->
+               @foreach($items as $item)
+                    <div class="col-md-4">
+                        <div class="event-item02 event-item">
+                            @if($item->discount_price)
+                                <div class="event-item__label">
+                                    {{round(100-(($item->discount_price/$item->price)*100))}} <span>% off</span>
+
+                                </div>
+                            @endif
+                            <div class="event-item02__img lazyload" data-bg="{{$item->image}}"></div>
+                            <div class="event-item02__content">
+
+                                <div class="event-item02__border">
+                                    <h4 class="tt-title">{{$item->item_name}}</h4>
+                                    <p>
+                                        {{$item->description}}
+                                    </p>
+
+                                    <a href="" id="{{$item->id}}" data-id = "{{$item->id}}" data-desc = "{{$item->name}}" data-image = "{{$item->image}}" data-name = "{{$item->item_name}}" data-price = "{{$item->discount_price??$item->price}}" data-toggle="modal" data-target="#modalBayTickets" class="tt-btn"><span>${{$item->discount_price?$item->discount_price:$item->price}} Order</span></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="event-item02">
-                        <div class="event-item02__img lazyload" data-bg="images/events-offer-02.jpg"></div>
-                        <div class="event-item02__content">
-                            <div class="event-item02__border">
-                                <h4 class="tt-title">Birthday Parties</h4>
-                                <p>
-                                    Spend your birthday with us, and enjoy a night you’ll remember forever.
-                                </p>
-                                <a href="events-parties.html" class="tt-btn"><span>know more</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="event-item02">
-                        <div class="event-item02__img lazyload" data-bg="images/events-offer-03.jpg"></div>
-                        <div class="event-item02__content">
-                            <div class="event-item02__border">
-                                <h4 class="tt-title">Bachelorette</h4>
-                                <p>
-                                    VIP Night Club! End your single days in style with a VIP table reservation.
-                                </p>
-                                <a href="events-parties.html" class="tt-btn"><span>know more</span></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </div>

@@ -11,8 +11,8 @@ class HomeController extends Controller
 {
     public function index(){
         $events_two = Event::latest()->limit(2);
-        $events = Event::all();
-        $items = Item::all();
+        $events = Event::where('event_date','>',now())->latest()->get();
+        $items = Item::all()->random()->limit(3)->get();
         $user = User::all()->random(10);
 
         return view('index', [

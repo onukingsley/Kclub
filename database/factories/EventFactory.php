@@ -22,7 +22,7 @@ class EventFactory extends Factory
             'description' => 'Inventore est tempore corrupti. Ipsum ut laboriosam et pariatur autem laudantium amet',
             'dress_code' => fake()->randomElement(['Senator','All white', 'Casual', 'Masked', 'Halloween Costume','Suit']),
             'ticketing' => fake()->numberBetween(2000,5000),
-            'event_date' => fake()->date,
+            'event_date' => fake()->dateTimeThisMonth(),
             'image' => 'http://127.0.0.1:8000/images/tickets/tickets-col-' . fake()->randomElement(['01', '02', '03', '04', '05', '06']).'.jpg',
 
         ];

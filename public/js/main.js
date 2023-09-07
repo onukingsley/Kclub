@@ -1,5 +1,20 @@
 //registered
 
+
+    $('#modalBayTickets').on('shown.bs.modal',function (e) {
+        alert('hello world')
+        console.log('hello')
+        id = modalbayitem.data('id')
+        var item = modalbayitem.data('name')
+        console.log(item)
+        $('#itemname').value = item
+        console.log(id)
+    })
+
+
+
+
+/*
 document.onreadystatechange = function (){
     if (document.readyState !== 'complete'){
         document.querySelector('body').style.visibility = 'hidden';
@@ -11,6 +26,7 @@ document.onreadystatechange = function (){
     }
 }
 
+*/
 
 
 /*$(document).ready(function (){
